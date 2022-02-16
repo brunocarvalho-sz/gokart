@@ -1,10 +1,12 @@
 # import pdb
 # pdb.set_trace()
 
+def nome_arq(filename, dir= 'Data', ext= 'csv'):
+    return '{0}/{1}.{2}'.format(dir, filename, ext)
 
-def tabela_dados():
+def tabela_dados(filename):
     # filename = 'Data/Export Bateria 5.csv'
-    filename = 'Data/Export Bateria 7.csv'
+    # filename = 'Data/Export Bateria 7.csv'
     arquivo = open(filename, 'r', encoding='utf-8')  #read mode and forced UTF-8
     linhas = arquivo.readlines()
     arquivo.close()
@@ -36,5 +38,5 @@ def print_tabela(tabelavoltas):
 
 # O name é igual a mais quando você executa no cmd
 if __name__ == '__main__':  # python nomedoaquivo.py
-    teste = tabela_dados()
+    teste = tabela_dados(nome_arq('Export Bateria 5'))
     print_tabela(teste)
