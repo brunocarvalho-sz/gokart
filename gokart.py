@@ -36,7 +36,16 @@ def print_tabela(tabelavoltas):
     for volta in tabelavoltas:
         print( str(volta).replace('[' , '').replace(']', '') )
 
+def limpeza(tabelavoltas):
+    for linha in tabelavoltas:
+        for x in range(len(linha)):
+            if linha[x].isdigit():
+                linha[x] = int(linha[x])
+            else:
+                linha[x] = linha[x].replace('"', '')
+
 # O name é igual a mais quando você executa no cmd
 if __name__ == '__main__':  # python nomedoaquivo.py
     teste = tabela_dados(nome_arq('Export Bateria 5'))
+    limpeza(teste)
     print_tabela(teste)
